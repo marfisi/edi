@@ -38,13 +38,14 @@ public class AsBofor0fDaoMng implements AsBofor0fDao, Serializable{
 	}
 		
 	@SuppressWarnings("unchecked")
-	public List<AsBofor0f> getDaFornitoreEIdBolla(Integer bfcof, Integer bfdbf, String bfnbf){
+	public List<AsBofor0f> getDaFornitoreEIdBolla(Integer bfcof, String bfcau, Integer bfdbf, String bfnbf){
 		List<AsBofor0f> o = null;
 		try{
 			try{
 				utx.begin();
-				Query query = em.createNamedQuery("AsBofor0f.find");
+				Query query = em.createNamedQuery("AsBofor0f.findPerFornitoreEPerBolla");
 				query.setParameter("bfcof", bfcof);
+				query.setParameter("bfcau", bfcau);
 				query.setParameter("bfdbf", bfdbf);
 				query.setParameter("bfnbf", "%" + bfnbf.toUpperCase() + "%");
 				o = (List<AsBofor0f>)query.getResultList();

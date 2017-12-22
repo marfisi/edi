@@ -14,7 +14,8 @@ import it.cascino.edi.dbas.model.pkey.AsMovma0fPKey;
 	@NamedQuery(name = "AsMovma0f.findAll", query = "SELECT a FROM Movma0f a"),
 	@NamedQuery(name = "AsMovma0f.findMov", query = "SELECT a FROM Movma0f a WHERE a.id.vdatr = :vdatr and a.id.vcaus = :vcaus and a.id.vnura = :vnura and a.id.vnumd = :vnumd"),
 	@NamedQuery(name = "AsMovma0f.findMovConRigo", query = "SELECT a FROM Movma0f a WHERE a.id.vdatr = :vdatr and a.id.vcaus = :vcaus and a.id.vnura = :vnura and a.id.vnumd = :vnumd and a.id.vprog = :vprog"),
-	@NamedQuery(name = "AsMovma0f.updPrezzo", query = "UPDATE Movma0f a set a.vprez = :vprez where a.id.vdatr = :vdatr and a.id.vcaus = :vcaus and a.id.vnura = :vnura and a.id.vnumd = :vnumd and a.id.vprog = :vprog and a.vprez = 0")
+	@NamedQuery(name = "AsMovma0f.findMovConCodart", query = "SELECT a FROM Movma0f a WHERE a.id.vdatr = :vdatr and a.id.vcaus = :vcaus and a.id.vnura = :vnura and a.id.vnumd = :vnumd and a.vcoda = :vcoda"),
+	@NamedQuery(name = "AsMovma0f.updPrezzoESco", query = "UPDATE Movma0f a set a.vprez = :vprez, a.vsco1 = :vsco1, a.vsco2 = :vsco2, a.vsco3 = :vsco3 where a.id.vdatr = :vdatr and a.id.vcaus = :vcaus and a.id.vnura = :vnura and a.id.vnumd = :vnumd and a.id.vprog = :vprog and a.vprez = 0")
 })
 public class AsMovma0f implements Serializable{
 	private static final long serialVersionUID = 1L;

@@ -16,7 +16,11 @@ public interface AsMovma0fDao{
 
 	AsMovma0f getMovConRigo(Integer vdatr, String vcaus, Integer vnura, Integer vnumd, Integer vprog);
 
+	AsMovma0f getMovConCodart(Integer vdatr, String vcaus, Integer vnura, Integer vnumd, String vcoda);
+
 	String updPrezzo(Integer vdatr, String vcaus, Integer vnura, Integer vnumd, Integer vprog, Float vprez);
+
+	String updPrezzoESco(Integer vdatr, String vcaus, Integer vnura, Integer vnumd, Integer vprog, Float vprez, Float vsco1, Float vsco2, Float vsco3);
 
 	void close();
 }

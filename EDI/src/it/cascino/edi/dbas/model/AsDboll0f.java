@@ -6,15 +6,15 @@ import org.apache.commons.lang3.StringUtils;
 import it.cascino.edi.dbas.model.pkey.AsBofor0fPKey;
 
 /**
-* The persistent class for the cas_dat/bofor0f database table.
+* The persistent class for the cas_dat/dboll0f database table.
 * 
 */
-@Entity(name = "Bofor0f")
+@Entity(name = "Dboll0f")
 @NamedQueries({
-	@NamedQuery(name = "AsBofor0f.findAll", query = "SELECT a FROM Bofor0f a"),
-	@NamedQuery(name = "AsBofor0f.findPerFornitoreEPerBolla", query = "SELECT a FROM Bofor0f a WHERE a.bfcof = :bfcof and a.id.bfcau = :bfcau and a.bfpfc = 0 and a.bfdbf >= :bfdbf and upper(a.bfnbf) like :bfnbf")
+	@NamedQuery(name = "Dboll0f.findAll", query = "SELECT a FROM Dboll0f a"),
+	@NamedQuery(name = "Dboll0f.findPerFornitoreEPerBolla", query = "SELECT a FROM Dboll0f a WHERE a.bfcof = :bfcof and a.id.bfcau = 'B1' and a.bfpfc = 0 and a.bfdbf >= :bfdbf and upper(a.bfnbf) like :bfnbf")
 })
-public class AsBofor0f implements Serializable{
+public class AsDboll0f implements Serializable{
 
 	private static final long serialVersionUID = 1L;
 	
@@ -25,11 +25,11 @@ public class AsBofor0f implements Serializable{
 	private Integer bfdbf;
 	private String bfnbf;
 	
-	public AsBofor0f(){
+	public AsDboll0f(){
 		this.id = new AsBofor0fPKey();
 	}
 	
-	public AsBofor0f(AsBofor0fPKey id, Integer bfcof, Integer bfpfc, Integer bfdbf, String bfnbf){
+	public AsDboll0f(AsBofor0fPKey id, Integer bfcof, Integer bfpfc, Integer bfdbf, String bfnbf){
 		super();
 		this.id = id;
 		this.bfcof = bfcof;
@@ -92,8 +92,8 @@ public class AsBofor0f implements Serializable{
 
 	@Override
 	public boolean equals(Object obj){
-		if(obj instanceof AsBofor0f) {
-			if(this.id == ((AsBofor0f)obj).id) {
+		if(obj instanceof AsDboll0f) {
+			if(this.id == ((AsDboll0f)obj).id) {
 				return true;
 			}else{
 				return false;

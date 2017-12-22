@@ -7,7 +7,7 @@ public class RunEDI{
 	private static Logger log;
 	
 	public static void main(String[] args){
-		PropertyConfigurator.configure("logdir/logEDI.properties");
+		PropertyConfigurator.configure("logdir/log.properties");
 		log = Logger.getLogger(RunEDI.class);
 		log.info("START");
 		

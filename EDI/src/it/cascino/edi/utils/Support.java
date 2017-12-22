@@ -17,7 +17,7 @@ public class Support{
 		decimalSep = ",";
 		symbols = new DecimalFormatSymbols(Locale.ITALY);
 		symbols.setDecimalSeparator(decimalSep.charAt(0));
-		decimalFormat = new DecimalFormat("9.99", symbols);
+		decimalFormat = new DecimalFormat("0.00", symbols);
 		decimalFormat.setRoundingMode(RoundingMode.HALF_UP);
 		String fToStr = decimalFormat.format(f);
 		return fToStr;

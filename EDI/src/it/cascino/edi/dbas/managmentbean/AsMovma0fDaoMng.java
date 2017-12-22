@@ -126,18 +126,47 @@ public class AsMovma0fDaoMng implements AsMovma0fDao, Serializable{
 		return o;
 	}
 	
+	public AsMovma0f getMovConCodart(Integer vdatr, String vcaus, Integer vnura, Integer vnumd, String vcoda){
+		AsMovma0f o = null;
+		try{
+			try{
+				utx.begin();
+				Query query = em.createNamedQuery("AsMovma0f.findMovConCodart");
+				query.setParameter("vdatr", vdatr);
+				query.setParameter("vcaus", vcaus);
+				query.setParameter("vnura", vnura);
+				query.setParameter("vnumd", vnumd);
+				query.setParameter("vcoda", vcoda);
+				o = (AsMovma0f)query.getSingleResult();
+			}catch(NoResultException e){
+				o = null;
+			}
+			utx.commit();
+		}catch(Exception e){
+			log.fatal(e.toString());
+		}
+		return o;
+	}
+	
 	public String updPrezzo(Integer vdatr, String vcaus, Integer vnura, Integer vnumd, Integer vprog, Float vprez){
+		return updPrezzoESco(vdatr, vcaus, vnura, vnumd, vprog, vprez, 0.0f, 0.0f, 0.0f);
+	}
+	
+	public String updPrezzoESco(Integer vdatr, String vcaus, Integer vnura, Integer vnumd, Integer vprog, Float vprez, Float vsco1, Float vsco2, Float vsco3){
 		Integer o = -1;
 		try{
 			try{
 				utx.begin();
-				Query query = em.createNamedQuery("AsMovma0f.updPrezzo");
+				Query query = em.createNamedQuery("AsMovma0f.updPrezzoESco");
 				query.setParameter("vdatr", vdatr);
 				query.setParameter("vcaus", vcaus);
 				query.setParameter("vnura", vnura);
 				query.setParameter("vnumd", vnumd);
 				query.setParameter("vprog", vprog);
 				query.setParameter("vprez", vprez);
+				query.setParameter("vsco1", vsco1);
+				query.setParameter("vsco2", vsco2);
+				query.setParameter("vsco3", vsco3);
 				o = query.executeUpdate();
 			}catch(NoResultException e){
 				o = -1;
